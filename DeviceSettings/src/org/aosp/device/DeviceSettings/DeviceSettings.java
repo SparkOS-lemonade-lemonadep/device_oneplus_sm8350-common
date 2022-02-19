@@ -63,7 +63,6 @@ public class DeviceSettings extends PreferenceFragment
     private static final String FILE_LEVEL = "/sys/devices/platform/soc/88c000.i2c/i2c-10/10-005a/leds/vibrator/level";
     public static final String DEFAULT = "3";
 
-    private DolbySwitch mDolbySwitch;
     private Preference mDozeSettings;
 
     private static SwitchPreference mFpsInfo;
@@ -75,7 +74,6 @@ public class DeviceSettings extends PreferenceFragment
     private static TwoStatePreference mEdgeTouchSwitch;
     private static TwoStatePreference mAutoHBMSwitch;
     private static TwoStatePreference mMuteMedia;
-    private static TwoStatePreference mEnableDolbyAtmos;
 
     private VibratorStrengthPreference mVibratorStrengthPreference;
     private CustomSeekBarPreference mFpsInfoTextSizePreference;
@@ -102,11 +100,6 @@ public class DeviceSettings extends PreferenceFragment
         mHBMModeSwitch.setEnabled(HBMModeSwitch.isSupported());
         mHBMModeSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_HBM_SWITCH, false));
         mHBMModeSwitch.setOnPreferenceChangeListener(this);
-
-        mDolbySwitch = new DolbySwitch(this.getContext());
-        mEnableDolbyAtmos = (TwoStatePreference) findPreference(KEY_ENABLE_DOLBY_ATMOS);
-        mEnableDolbyAtmos.setChecked(mDolbySwitch.isCurrentlyEnabled());
-        mEnableDolbyAtmos.setOnPreferenceChangeListener(this);
 
         mDozeSettings = (Preference)findPreference(PREF_DOZE);
         mDozeSettings.setOnPreferenceClickListener(preference -> {
@@ -189,8 +182,6 @@ public class DeviceSettings extends PreferenceFragment
             } else {
                 this.getContext().stopService(hbmIntent);
             }
-        } else if (preference == mEnableDolbyAtmos) {
-            mDolbySwitch.setEnabled((Boolean) newValue);
         } else if (preference == mFpsInfo) {
             boolean enabled = (Boolean) newValue;
             Intent fpsinfo = new Intent(this.getContext(), FPSInfoService.class);
