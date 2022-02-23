@@ -294,10 +294,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapper@4.0.vendor
 
-# Doze
-PRODUCT_PACKAGES += \
-    OnePlusDoze
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.3.vendor \
@@ -309,6 +305,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     OPSoundTunerOverlay
+
+# DeviceSettings
+PRODUCT_PACKAGES += \
+    DeviceSettings
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -522,8 +522,7 @@ PRODUCT_PACKAGES += \
 
 # tri-state-key
 PRODUCT_PACKAGES += \
-    KeyHandler \
-    tri-state-key-calibrate
+    tri-state-key_daemon
 
 # Update engine
 PRODUCT_PACKAGES += \
