@@ -48,6 +48,7 @@ using ::android::hardware::hidl_string;
 using ::android::sp;
 using ::vendor::oneplus::fingerprint::extension::V1_0::IVendorFingerprintExtensions;
 using ::vendor::oneplus::hardware::display::V1_0::IOneplusDisplay;
+
 struct BiometricsFingerprint : public IBiometricsFingerprint {
 public:
     BiometricsFingerprint();
@@ -70,10 +71,7 @@ public:
     Return<bool> isUdfps(uint32_t sensorID) override;
     Return<void> onFingerDown(uint32_t x, uint32_t y, float minor, float major) override;
     Return<void> onFingerUp() override;
-    // Methods from ::android::hardware::biometrics::fingerprint::V2_3::IBiometricsFingerprint follow.
-    Return<void> onShowUdfpsOverlay() override;
-    Return<void> onHideUdfpsOverlay() override;
-
+    
 private:
     static const char* getModuleId();
     static fingerprint_device_t* openHal();

@@ -486,7 +486,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.protected_contents=true \
     ro.surface_flinger.set_touch_timer_ms=200 \
     ro.surface_flinger.use_color_management=true \
-    ro.surface_flinger.wcg_composition_dataspace=143261696
+    ro.surface_flinger.wcg_composition_dataspace=143261696 \
+    ro.surface_flinger.supports_background_blur=1
+
+PRODUCT_SYSTEM_PROPERTIES += ro.launcher.blur.appLaunch=0
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -579,3 +582,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+    
+# Quick Tap
+TARGET_SUPPORTS_QUICK_TAP := true
