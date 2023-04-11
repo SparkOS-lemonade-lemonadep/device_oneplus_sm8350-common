@@ -11,10 +11,6 @@
     <!-- Whether to show min/max refresh rate in display settings -->
     <bool name="config_show_refresh_rate_controls">true</bool>
 
-    <!-- Maintainer info -->
-    <string name="config_maintainer_name" translatable="false">Chandu Dyavanapelli</string>
-    <string name="config_maintainer_link" translatable="false">https://www.paypal.com/paypalme/ChanduDyavanapelli</string>
-
     <!-- Dolby Atmos -->
     <string name="config_dolbyAtmosPackage" translatable="false">com.dolby.daxappui/com.dolby.daxappui.MainActivity</string>
 
